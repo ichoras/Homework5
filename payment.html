@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>coffeerun</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css">
+    </head>
+    <body class="container">
+        <header>
+            <h1>Payment Information</h1>
+        </header>
+        <section>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form data-payment-order="form">
+                        <div class="form-group">
+                            <label for="guestInfo">Guest Information</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="title" value="mr">
+                                    Mr.
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="title" value="mrs">
+                                    Mrs.
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="title" value="miss">
+                                    Miss
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="title" value="mx">
+                                    Mx.
+                                </label>
+                            </div>
+                            <input class="form-control" type="name" name="name"
+                                id="guestName" value="" placeholder="Enter your name">
+                            <input class="form-control" type="emailAddress" name="email"
+                                id="guestEmail" value="" placeholder="Enter your email address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentInfo">Payment Information</label>
+                            <select id="cardType" class="form-control" name="cardType">
+                                <option value="None">Select Card Type</option>
+                                <option value="Visa">Visa</option>
+                                <option value="Mastercard">Mastercard</option>
+                                <option value="AmericanExpress">American Express</option>
+                                <option value="Discover">Discover</option>
+                            </select>
+                            <input class="form-control" type="payment" name="cardNumber"
+                                id="paymentInfo" value="" placeholder="Enter Credit Card Number">
+                            <input class="form-control" type="CVVnumber" name="CVVnum"
+                                id="CVV" value="" placeholder="Enter CVV">
+                            <select id="Expiration Date Month" class="form-control" name="month">
+                                <option value="ExpMonth">Select Expiration Date Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <select id="Expiration Date Year" class="form-control" name="year">
+                                <option value="ExpYear">Select Expiration Date Year</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="billingInfo">Billing Information</label>
+                            <input class="form-control" type="streetAddress" name="streetAddress"
+                                id="billingInfo" value="" placeholder="Enter Street Address (ie. 123 Main Street Apt F)">
+                            <input class="form-control" type="cityAddress" name="city"
+                                id="billingInfo" value="" placeholder="Enter City">
+                            <input class="form-control" type="stateAddress" name="state"
+                                id="billingInfo" value="" placeholder="Enter State">
+                            <input class="form-control" type="zipAddress" name="zip"
+                                id="billingInfo" value="" placeholder="Enter ZIP Code">
+                        </div>
+                    </form>
+
+
+                    <!-- Utilized this website to learn how to format the HTML code for modal: 
+                        https://www.tutorialrepublic.com/faq/how-to-open-a-bootstrap-modal-window-using-jquery.php -->
+                    <div class="pop">
+                        <button type="button" class="btn btn-default">Submit Payment</button>
+                     
+                        <div id="thankYouModal" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Payment Received!</h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div data-payment-order="payment"></div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="scripts/checklist.js" charset="utf-8"></script>
+        <script src="scripts/formhandler.js" chatset="utf-8"></script>
+        <script src="scripts/datastore.js" charset="utf-8"></script>
+        <script src="scripts/truck.js" charset="utf-8"></script>
+        <script src="scripts/main.js" charset="utf-8"></script>
+    </body>
+</html>
